@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/stockTradingCalculator.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <title>Stock Trading Calculator</title>
+  </head>
+  <body>
+    <!-- Calculator -->
+    <div onsubmit class="main">
+      <div class="Main_outerBox">
+        <div class="main_innerBox">
+          <h2 class="heading">
+            <span><i class="fa fa-calculator"></i></span>
+            <span> Trading Calculator </span>
+          </h2>
+          <h3 class="paragraph">
+            Enter the number of Quantity and price per share onwhich you
+            purchased and the selling price.
+          </h3>
+          <p id="error"></p>
+
+          <table class="input-table">
+            <tbody id="input-table-body">
+              <tr rowspan="2" class="row-headings">
+                <td>
+                  <h3 class="sub-heading">Buy</h3>
+                  <br />
+                </td>
+              </tr>
+              <tr>
+                <td class="table-data">
+                  <label for="oldShares" class="label">Quantity</label>
+                  <div class="input-div">
+                    <img
+                      src="../assets/images/stock-dark-grey.png"
+                      alt="Stock"
+                      class="icon"
+                    />
+                    <input
+                      value="30"
+                      type="number"
+                      id="oldShares"
+                      class="input pressEnter"
+                    />
+                  </div>
+                </td>
+                <td class="table-data">
+                  <label for="oldSharesCost" class="label">Price</label>
+                  <div class="input-div">
+                    <img
+                      src="../assets/images/dollar-filled-grey.png"
+                      alt="Dollar"
+                      class="icon dollar"
+                    />
+                    <input
+                      value="50"
+                      type="number"
+                      id="oldSharesCost"
+                      class="input pressEnter"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr rowspan="2" class="row-headings">
+                <td>
+                  <h3 class="sub-heading">Sell</h3>
+                  <br />
+                </td>
+              </tr>
+              <tr>
+                <!-- <td class="table-data">
+                  <label for="newShares" class="label">Shares</label>
+                  <div class="input-div">
+                    <img
+                      src="../assets/images/stock-dark-grey.png"
+                      alt="Stock"
+                      class="icon"
+                    />
+                    <input
+                      value="50"
+                      type="number"
+                      id="newShares"
+                      class="input newSharesCount pressEnter"
+                    />
+                  </div>
+                </td> -->
+                <td class="table-data">
+                  <label for="newSharesCost" class="label"> Price </label>
+                  <div class="input-div">
+                    <img
+                      src="../assets/images/dollar-filled-grey.png"
+                      alt="Dollar"
+                      class="icon dollar"
+                    />
+                    <input
+                      value="60"
+                      type="number"
+                      id="newSharesCost"
+                      class="input newSharesCost pressEnter"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div
+            class="calculate-button"
+            onclick="calculate(); scrollWin(0, 350);"
+          >
+            <a> Calculate </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-banner">
+        <img src="../assets/images/Advert1.jpg" alt="loading" />
+      </div>
+    </div>
+
+    <div class="portrait-banner">
+      <img
+        style="width: 100%; height: 250px"
+        src="../assets//images/Advert2.jpg"
+        alt=""
+      />
+    </div>
+
+    <!-- Results -->
+    <div class="Result-main">
+      <h1>Results (1 of 2)</h1>
+      <div class="Result-box">
+        <div>
+          <h3>Net Buy Price</h3>
+          <h4 class="Result-score" id="netBuyPrice">0</h4>
+        </div>
+        <div>
+          <h3>Net Sell Price</h3>
+          <h4 class="Result-score" id="netSellPrice">0</h4>
+        </div>
+        <div>
+          <h3>Profit / Loss</h3>
+          <h4 class="Result-score" id="Profit">0</h4>
+        </div>
+        <div>
+          <h3>Return on Investment</h3>
+          <h4 class="Result-score" id="returnOnInvestment">0</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <h1 class="Chart-heading">Results (2 of 2)</h1>
+    <div class="Chart-main">
+      <canvas id="myChart" style="width: 100%; max-width: 1000px"></canvas>
+    </div>
+
+    <script src="../js/stockTradingCalculator.js"></script>
+  </body>
+</html>
